@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>航空用户管理系统</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <span></span>
+      <span></span>
+      <span></span>
+      <form
+        id="signinForm"
+        class="active"
+        onsubmit="event.preventDefault(); loginUser();"
+      >
+        <h2>航空用户登录</h2>
+        <div class="inputBox">
+          <input type="text" id="username" placeholder="用户名" />
+        </div>
+        <div class="inputBox">
+          <input type="password" id="password" placeholder="密码" />
+        </div>
+        <div class="inputBox group">
+          <a href="#" id="adminEntry">管理员入口</a>
+          <a href="#" id="signup">注册</a>
+        </div>
+        <div class="inputBox">
+          <input type="submit" value="登录" />
+        </div>
+      </form>
+
+      <form id="signinFormAdmin" class="hidden">
+        <h2>管理员操作登录</h2>
+        <div class="inputBox">
+          <input type="text" id="adminUsername" placeholder="管理员ID" />
+        </div>
+        <div class="inputBox">
+          <input type="password" id="adminPassword" placeholder="您的密码" />
+        </div>
+        <div class="inputBox group">
+          <a href="#" id="userEntry">用户入口</a>
+        </div>
+        <div class="inputBox">
+          <input type="submit" value="登录" />
+        </div>
+      </form>
+
+      <form
+        id="signupForm"
+        class="hidden"
+        onsubmit="event.preventDefault(); registerUser();"
+      >
+        <h2>注册用户</h2>
+        <div class="inputBox">
+          <input type="text" id="regUsername" placeholder="用户名" />
+        </div>
+        <div class="inputBox">
+          <input type="text" id="email" placeholder="邮箱地址" />
+        </div>
+        <div class="inputBox">
+          <input type="password" id="regPassword" placeholder="新建密码" />
+        </div>
+        <div class="inputBox">
+          <input type="password" id="confirmPassword" placeholder="确认密码" />
+        </div>
+        <div class="inputBox">
+          <input type="submit" value="注册账户" />
+        </div>
+        <div class="inputBox group">
+          <a href="#">已经有一个账号了 ? <b id="signin">登录</b></a>
+        </div>
+      </form>
+    </div>
+    <script>
+      let signup = document.querySelector("#signup");
+      let signin = document.querySelector("#signin");
+      let signinAdmin = document.querySelector("#adminEntry");
+      let userEntry = document.querySelector("#userEntry");
+      let body = document.querySelector("body");
+
+      signup.onclick = function () {
+        body.classList.add("signup");
+        document.getElementById("signinForm").classList.add("hidden");
+        document.getElementById("signupForm").classList.remove("hidden");
+        document.getElementById("signinFormAdmin").classList.add("hidden");
+      };
+
+      signin.onclick = function () {
+        body.classList.remove("signup");
+        body.classList.remove("signupAdmin");
+        document.getElementById("signinForm").classList.remove("hidden");
+        document.getElementById("signupForm").classList.add("hidden");
+        document.getElementById("signinFormAdmin").classList.add("hidden");
+      };
+
+      signinAdmin.onclick = function () {
+        body.classList.add("signupAdmin");
+        document.getElementById("signinForm").classList.add("hidden");
+        document.getElementById("signupForm").classList.add("hidden");
+        document.getElementById("signinFormAdmin").classList.remove("hidden");
+      };
+
+      userEntry.onclick = function () {
+        body.classList.remove("signupAdmin");
+        document.getElementById("signinForm").classList.remove("hidden");
+        document.getElementById("signupForm").classList.add("hidden");
+        document.getElementById("signinFormAdmin").classList.add("hidden");
+      };
+    </script>
+    <script src="js/login.js"></script>
+    <script src="js/register.js"></script>
+  </body>
+</html>

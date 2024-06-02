@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>航票购买系统</title>
+    <link rel="stylesheet" type="text/css" href="css/mainWeb.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="warp">
+        <div class="nav">
+          <span></span>
+          <span></span>
+          <span></span>
+          <div class="" btn>
+            <div class="btn-item"></div>
+            <div class="btn-item"></div>
+            <div class="btn-item"></div>
+          </div>
+          <div class="icon">
+            <div class="icon-img">
+              <img />
+            </div>
+            <div class="icon-con">
+              <p>泥豪</p>
+              <h2>(*^▽^*)</h2>
+            </div>
+          </div>
+          <div class="line"></div>
+          <div class="title">
+            <p>菜单栏</p>
+          </div>
+          <div class="menu">
+            <div class="item">
+              <div class="light"></div>
+              <div class="licon">
+                <span>🛈</span>
+              </div>
+              <div class="con" href="#" id="personalinfo">个人信息</div>
+              <div class="ricon"></div>
+            </div>
+            <div class="item">
+              <div class="light"></div>
+              <div class="licon">
+                <span>🛪</span>
+              </div>
+              <div class="con">搜索航班</div>
+              <div class="ricon"></div>
+            </div>
+            <div class="item">
+              <div class="light"></div>
+              <div class="licon">
+                <span>☊</span>
+              </div>
+              <div class="con">我的订单</div>
+              <div class="ricon"></div>
+            </div>
+            <div class="item">
+              <div class="light"></div>
+              <div class="licon">
+                <span>❤</span>
+              </div>
+              <div class="con">处理订单</div>
+              <div class="ricon"></div>
+            </div>
+            <div class="item">
+              <div class="light"></div>
+              <div class="licon">
+                <span>✘</span>
+              </div>
+              <div class="con">取消订单</div>
+              <div class="ricon"></div>
+            </div>
+            <div class="item">
+              <div class="light"></div>
+              <div class="licon">
+                <span>✿</span>
+              </div>
+              <div class="con" href="#" id="teamtask">小组任务</div>
+              <div class="ricon"></div>
+            </div>
+          </div>
+          <div class="line"></div>
+          <div class="title">
+            <p>服务</p>
+          </div>
+          <div class="serve">
+            <div class="item">
+              <div class="licon">
+                <span>✉︎</span>
+              </div>
+              <div class="con">客服通信</div>
+              <div class="ricon"></div>
+            </div>
+            <div class="item">
+              <div class="licon">
+                <span>☎</span>
+              </div>
+              <div class="con">问题反馈</div>
+              <div class="ricon"></div>
+            </div>
+            <div class="item">
+              <div class="licon">
+                <span>★</span>
+              </div>
+              <div class="con">个性设置</div>
+              <div class="ricon"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="window" class="popup-content">
+      <span class="close-btn">&times;</span>
+      <form id="personal-info" class="active">
+        <div class="userinfotitle">
+          <h3>欢迎来到航空系统~ <span id="username"></span></h3>
+        </div>
+        <div class="line"></div>
+        <div class="userinfo">
+          <p>真实姓名: <span id="realName"></span></p>
+          <p>性别: <span id="sex"></span></p>
+          <p>年龄: <span id="age"></span></p>
+          <p>手机: <span id="phone"></span></p>
+          <p>邮箱: <span id="email"></span></p>
+          <p>当前预定机票数: <span id="ticketCount">0</span></p>
+        </div>
+        <div class="line"></div>
+        <div class="userinfotitle">
+          <h3>您即将出发的行程：</h3>
+        </div>
+        <div class="flight-info-box">
+          <div class="flight-info-header">
+            <span>航空公司/航班号</span>
+            <span>起飞时间</span>
+            <span></span>
+            <span>到达时间</span>
+            <span>出发时间</span>
+            <span>座位号</span>
+          </div>
+          <div class="flight-info">
+            <span>HO5375</span>
+            <span>07:00</span>
+            <span class="arrow"><p>→</p></span>
+            <span>09:20</span>
+            <span>2024/6/2</span>
+            <span>J138</span>
+          </div>
+          <div class="flight-detail">
+            <span>机型: JET</span>
+            <span>首都国际机场T2</span>
+            <span></span>
+            <span>浦东国际机场T1</span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </form>
+
+      <form id="team-work" class="hidden">
+        <div class="teamworktitle">
+          <h3>以下是各位小组成员的任务：</h3>
+        </div>
+        <div class="line"></div>
+        <div class="teamworksubtitle">
+          <h3>任务一：</h3>
+        </div>
+        <div class="teamtaskcontent">
+          <p>1.建立所有表之间的外键</p>
+          <p>2.把多对多关系的表全部制作完毕</p>
+        </div>
+        <div class="line"></div>
+        <div class="teamworksubtitle">
+          <h3>任务二：</h3>
+        </div>
+        <div class="teamtaskcontent">
+          <p>
+            1.写一个存储结构，getUserTotalTickets()，参数是用户名，返回的值是用户一共拥有的订单数
+          </p>
+          <p>
+            2.写一个存储结构，getLatestFlight()，参数是用户名，返回一个表显示用户最近的一次航班，参考主页最近的航班
+          </p>
+        </div>
+        <div class="line"></div>
+        <div class="teamworksubtitle">
+          <h3>任务三：</h3>
+        </div>
+        <div class="teamtaskcontent">
+          <p>
+            1.查看 https://flights.ctrip.com/schedule/bjs.sha.html
+            网站，向表里写一些信息
+          </p>
+        </div>
+        <div class="line"></div>
+        <div class="teamworksubtitle">
+          <h3>任务四：</h3>
+        </div>
+        <div class="teamtaskcontent">
+          <p>1.继续制作网站其他部分</p>
+        </div>
+      </form>
+
+      <div class="footer">小组成员：灵 五 水 草</div>
+    </div>
+
+    <script>
+      //菜单之间切换的js脚本
+      document.addEventListener("DOMContentLoaded", () => {});
+
+      //新建事件监听器js脚本
+      document.addEventListener("DOMContentLoaded", () => {
+        const nav = document.querySelector(".nav");
+        const popup = document.querySelector(".popup-content");
+
+        nav.addEventListener("mouseover", () => {
+          popup.classList.add("hovered");
+        });
+
+        nav.addEventListener("mouseout", () => {
+          popup.classList.remove("hovered");
+        });
+      });
+    </script>
+    <script src="js/user.js"></script>
+    <script src="js/menu.js"></script>
+  </body>
+</html>

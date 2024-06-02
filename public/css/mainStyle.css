@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url(pictures/bg3.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}

@@ -1,0 +1,375 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: "Poppins", sans-serif;
+}
+
+.warp {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: url(../pictures/bg4.jpg) center no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 80%; /* 增加左边距使其不贴紧屏幕左侧 */
+}
+
+.nav {
+  width: 90px;
+  top: 10px;
+  bottom: 1%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  padding-top: 20px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.nav:hover {
+  width: 240px;
+}
+
+.btn {
+  width: 60px;
+  height: 10px;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 25px;
+  margin-top: 25px;
+}
+
+.btn-item {
+  width: 10px;
+  height: 0px;
+  border-radius: 50%;
+}
+
+.icon {
+  width: 250px;
+  height: 60px;
+  margin-left: 16.5px;
+  margin-top: 20px;
+  display: flex;
+}
+
+.icon-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 6px soild rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+}
+
+.icon-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background-image: url(../icon/head.png);
+  background-position: center;
+  background-size: contain;
+}
+
+.icon-con {
+  height: 60px;
+  margin-left: 25px;
+}
+
+.icon-con p {
+  padding-top: 2px;
+}
+
+.icon-con h2 {
+  font-weight: 400;
+}
+
+.line {
+  width: 40px;
+  height: 1px;
+  background: rgba(245, 253, 255, 0.5);
+  margin: 20px 25px;
+  transition: width 0.5s; /* 添加过渡效果 */
+}
+
+.nav:hover .line {
+  width: 190px;
+}
+
+.title {
+  width: 60px;
+  margin-left: 25px;
+  margin-bottom: 15px;
+}
+
+.title p {
+  font-size: 14px;
+}
+
+.menu {
+  width: 200px;
+  margin-left: 25px;
+}
+
+.item {
+  display: flex;
+  position: relative;
+  transition: 0.5s;
+  border-radius: 6px;
+}
+
+.item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.licon {
+  width: 40px;
+  height: 41px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.con {
+  width: 120px;
+  height: 41px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: width 0.3s, opacity 0.2s, left 0.3s; /* 添加过渡效果 */
+  overflow: hidden;
+  position: relative;
+  left: -10px;
+  opacity: 0;
+}
+
+.nav:hover .con {
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+
+.iconfont {
+  font-size: 26px;
+}
+
+.ricon .iconfont {
+  font-size: 20px;
+  color: #62cb44;
+}
+
+.light {
+  width: 6px;
+  height: 50px;
+  background: #eb5a56;
+  position: absolute;
+  left: -25px;
+  transition: opacity 0.5s; /* 添加过渡效果 */
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  opacity: 0;
+}
+
+.item:hover .light {
+  opacity: 1;
+}
+
+.serve {
+  width: 40px;
+  background: rgba(73, 73, 73, 0.482);
+  margin-left: 25px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: width 0.5s;
+}
+
+.nav:hover .serve {
+  width: 190px;
+}
+
+.serve .licon {
+  width: 40px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.serve .con {
+  width: 0;
+  padding-top: 8px;
+  white-space: nowrap; /* 防止文本换行 */
+  transition: width 0.5s, opacity 0.5s, left 0.5s; /* 添加 left 过渡效果 */
+  left: 20px;
+}
+
+.nav:hover .serve .con {
+  width: 160px;
+  left: -20px;
+}
+
+.serve .ricon {
+  width: 0;
+  height: 50px;
+  transition: width 0.5s, opacity 0.5s, left 0.5s; /* 添加 left 过渡效果 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  left: 0; /* 初始状态 */
+  opacity: 0;
+}
+
+.popup-content {
+  position: fixed;
+  top: 10px;
+  right: 2%;
+  bottom: 1%;
+  width: 83%;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  transition: opacity 0.5s, visibility 0.5s;
+  padding: 15px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: width 0.5s;
+}
+
+.popup-content.hovered {
+  width: 78%;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.close-btn {
+  align-self: flex-end;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.userinfotitle {
+  padding-left: 30px;
+}
+.userinfo {
+  padding-left: 30px;
+}
+
+.userinfo p {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.popup-content .line {
+  width: 95%;
+  height: 1px;
+  background: rgba(245, 253, 255, 0.5);
+  transition: width 0.5s; /* 添加过渡效果 */
+}
+
+#personal-info {
+  padding-top: 30px;
+  position: absolute;
+  width: 95%;
+  height: 100%;
+}
+
+#team-work {
+  padding-top: 30px;
+  position: absolute;
+  width: 95%;
+  height: 100%;
+}
+
+.flight-info-box {
+  width: 95%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  margin-left: 30px;
+  margin-top: 20px; /* Pushes it to the bottom */
+  color: white;
+}
+
+.flight-info-header {
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.flight-info {
+  margin: 0px 5px;
+  padding: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+.flight-detail {
+  margin: 0px 5px;
+  padding: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.flight-info-header span,
+.flight-info span,
+.flight-detail span {
+  flex: 1;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.flight-info span {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold; /* 加粗文本 */
+}
+
+.flight-info-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.arrow p {
+  display: inline-block; /* 将 span 元素视为内联块元素 */
+  font-weight: bolder;
+  font-size: 20px;
+  transform: scaleX(3); /* 水平拉伸文本 */
+}
+
+.footer {
+  margin-top: auto;
+  align-self: center; /* 仅 footer 元素水平居中 */
+  text-align: center; /* 文本居中 */
+  padding: 10px; /* 添加一些内边距以提高可读性 */
+  color: gray; /* 修改字体颜色为灰色 */
+  font-size: 0.9em; /* 调整文本大小稍微小一点 */
+  letter-spacing: 0.5em; /* 增加字间距 */
+}
+
+.teamworktitle,
+.teamworksubtitle,
+.teamtaskcontent {
+  padding-left: 30px;
+}
+
+.teamtaskcontent {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
