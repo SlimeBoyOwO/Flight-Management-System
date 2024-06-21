@@ -6,11 +6,20 @@
   font-family: "Poppins", sans-serif;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .warp {
   width: 100%;
   height: 100%;
   position: fixed;
-  background: url(../pictures/bg4.jpg) center no-repeat;
+  background: url(../pictures/bg8.png) center no-repeat;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -92,7 +101,7 @@
   width: 40px;
   height: 1px;
   background: rgba(245, 253, 255, 0.5);
-  margin: 20px 25px;
+  margin: 15px 25px;
   transition: width 0.5s; /* 添加过渡效果 */
 }
 
@@ -253,6 +262,7 @@
 .hidden {
   opacity: 0;
   visibility: hidden;
+  animation: fadeIn 2s ease-in-out forwards; /* Apply the animation */
 }
 
 .visible {
@@ -292,6 +302,35 @@
   height: 100%;
 }
 
+#flight-search {
+  padding-top: 30px;
+  position: absolute;
+  width: 95%;
+  height: 100%;
+}
+
+#user-order {
+  padding-top: 30px;
+  position: absolute;
+  width: 95%;
+  height: 100%;
+}
+
+#user-history-order {
+  padding-top: 30px;
+  position: absolute;
+  width: 95%;
+  height: 100%;
+}
+
+#change-info,
+#ticket-info {
+  padding-top: 30px;
+  position: absolute;
+  width: 95%;
+  height: 100%;
+}
+
 #team-work {
   padding-top: 30px;
   position: absolute;
@@ -303,9 +342,9 @@
   width: 95%;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  padding: 15px;
+  padding: 12px;
   margin-left: 30px;
-  margin-top: 20px; /* Pushes it to the bottom */
+  margin-top: 10px; /* Pushes it to the bottom */
   color: white;
 }
 
@@ -327,6 +366,100 @@
   justify-content: space-between;
 }
 
+.order-info-box {
+  width: 95%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 30px;
+  margin-top: 10px; /* Pushes it to the bottom */
+  color: white;
+}
+
+.order-info-header {
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.order-info {
+  margin: 0px 5px;
+  padding: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+.order-detail {
+  margin: 0px 5px;
+  padding: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-info-header span,
+.order-info span,
+.order-detail span {
+  flex: 1;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.order-info span {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold; /* 加粗文本 */
+}
+
+.order-info-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.history-order-info-box {
+  width: 95%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 30px;
+  margin-top: 10px; /* Pushes it to the bottom */
+  color: white;
+}
+
+.history-order-info-header {
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.history-order-info {
+  margin: 0px 5px;
+  padding: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+.history-order-detail {
+  margin: 0px 5px;
+  padding: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.history-order-info-header span,
+.history-order-info span,
+.history-order-detail span {
+  flex: 1;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.history-order-info span {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold; /* 加粗文本 */
+}
+
+.history-order-info-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 .flight-info-header span,
 .flight-info span,
 .flight-detail span {
@@ -334,6 +467,7 @@
   text-align: center;
   padding-top: 5px;
   padding-bottom: 5px;
+  align-self: center;
 }
 
 .flight-info span {
@@ -348,12 +482,14 @@
 
 .arrow p {
   display: inline-block; /* 将 span 元素视为内联块元素 */
+  align-items: center;
   font-weight: bolder;
   font-size: 20px;
   transform: scaleX(3); /* 水平拉伸文本 */
 }
 
 .footer {
+  width: 100%;
   margin-top: auto;
   align-self: center; /* 仅 footer 元素水平居中 */
   text-align: center; /* 文本居中 */
@@ -372,4 +508,345 @@
 .teamtaskcontent {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.teamtaskcontent p {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.flighttitle {
+  padding-left: 30px;
+}
+
+.ordertitle {
+  padding-left: 30px;
+}
+
+.historytitle {
+  padding-left: 30px;
+}
+
+.searchflightbox {
+  width: 95%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  margin-left: 30px;
+  margin-top: 20px; /* Pushes it to the bottom */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Ensures all children are centered */
+}
+
+.searchflightbox .searchflightheader {
+  width: 100%;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.searchflightbox .searchflightheader span {
+  flex: 1;
+  text-align: center;
+  font-weight: 600;
+  font-size: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.searchflightbox .searchflightinputbox {
+  width: 100%;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.searchflightbox .searchflightinputbox span {
+  flex: 1;
+  text-align: center;
+  font-weight: 600;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.searchflightbox input {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.15);
+  padding: 10px 10px;
+  border-radius: 4px;
+  font-size: 1em;
+  color: #fff;
+  text-align: center;
+}
+
+.searchflightinputbox input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+
+.searchflightbox input[type="button"] {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 6px 15px;
+  border-radius: 4px;
+  font-size: 1em;
+  color: #fff;
+  text-align: center;
+  background: #9595959d;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px; /* Adds some spacing from the input fields */
+  align-self: center; /* Ensures the button is centered */
+}
+
+.searchflightinputbox .arrow p {
+  padding-top: 5px;
+}
+
+.inputBox {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#pagination {
+  position: absolute;
+  bottom: 70px; /* 距离底部10px，可以根据需要调整 */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 100%;
+}
+
+.page-button {
+  position: relative;
+  display: flex;
+  margin-top: auto;
+  width: 100%;
+  justify-content: center;
+  margin-top: auto;
+  align-self: center; /* 仅 footer 元素水平居中 */
+  text-align: center; /* 文本居中 */
+}
+
+.page-button button {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 3px 7px;
+  border-radius: 4px;
+  font-size: 1em;
+  color: #fff;
+  text-align: center;
+  background: #9595959d;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 5px; /* Adds some spacing from the input fields */
+  margin-right: 5px; /* Adds some spacing from the input fields */
+  align-self: center; /* Ensures the button is centered */
+}
+
+#order-pagination {
+  position: absolute;
+  bottom: 70px; /* 距离底部10px，可以根据需要调整 */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 100%;
+}
+
+#history-order-pagination {
+  position: absolute;
+  bottom: 70px; /* 距离底部10px，可以根据需要调整 */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 100%;
+}
+
+.order-button {
+  position: relative;
+  display: flex;
+  margin-top: auto;
+  width: 100%;
+  justify-content: center;
+  margin-top: auto;
+  align-self: center; /* 仅 footer 元素水平居中 */
+  text-align: center; /* 文本居中 */
+}
+
+.order-button button {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 3px 7px;
+  border-radius: 4px;
+  font-size: 1em;
+  color: #fff;
+  text-align: center;
+  background: #9595959d;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 5px; /* Adds some spacing from the input fields */
+  margin-right: 5px; /* Adds some spacing from the input fields */
+  align-self: center; /* Ensures the button is centered */
+}
+
+#search-results a,
+#latest-results a,
+#order-results a,
+#history-results a {
+  font-size: 30px;
+  align-self: center;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.user-change-info-box {
+  padding-left: 30px;
+}
+
+.user-change-info-box p {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.user-change-info-box infoBox {
+  width: 40%;
+}
+.user-change-info-box input {
+  margin-left: 10px;
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.15);
+  padding: 5px 5px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #fff;
+  text-align: center;
+}
+
+.user-change-password-box {
+  padding-left: 30px;
+}
+
+.user-change-password-box p {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.user-change-password-box input {
+  margin-left: 10px;
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.15);
+  padding: 5px 5px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #fff;
+  text-align: center;
+}
+
+.user-charge-box {
+  padding-left: 30px;
+}
+
+.user-charge-box p {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.user-charge-box input {
+  margin-left: 10px;
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.15);
+  padding: 5px 5px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #fff;
+  text-align: center;
+}
+
+.order-detail button,
+.order-info button {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.15);
+  padding: 5px 5px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+}
+
+.order-info button {
+  text-decoration: underline;
+  font-size: 12px;
+}
+
+.flight-detail button {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.15);
+  padding: 5px 5px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  color: #fff;
+  text-align: center;
+}
+
+.ticket-info-box {
+  width: 95%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 7px;
+  margin-left: 30px;
+  margin-top: 10px; /* Pushes it to the bottom */
+  color: white;
+}
+
+.ticket-info-header {
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.ticket-info {
+  margin: 0px 5px;
+  padding: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ticket-info-header span,
+.ticket-info span,
+.ticket-detail span {
+  flex: 1;
+  text-align: center;
+  padding: 5px;
+  font-size: 16px;
+  align-self: center;
+}
+
+.ticket-info span {
+  padding-top: 10px;
+  font-size: 15px;
+  font-weight: bold; /* 加粗文本 */
+}
+
+.ticket-info-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ticket-info button {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.15);
+  padding: 5px 5px;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #fff;
+  text-align: center;
 }

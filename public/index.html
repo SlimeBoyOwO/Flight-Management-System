@@ -32,7 +32,11 @@
         </div>
       </form>
 
-      <form id="signinFormAdmin" class="hidden">
+      <form
+        id="signinFormAdmin"
+        class="hidden"
+        onsubmit="event.preventDefault(); loginAdmin();"
+      >
         <h2>管理员操作登录</h2>
         <div class="inputBox">
           <input type="text" id="adminUsername" placeholder="管理员ID" />
@@ -110,7 +114,7 @@
         document.getElementById("signinFormAdmin").classList.add("hidden");
       };
     </script>
-    <script src="js/login.js"></script>
-    <script src="js/register.js"></script>
+    <script src="js/loginJS/login.js"></script>
+    <script src="js/loginJS/register.js"></script>
   </body>
 </html>

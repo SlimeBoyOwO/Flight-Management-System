@@ -46,7 +46,7 @@
               <div class="licon">
                 <span>🛪</span>
               </div>
-              <div class="con">搜索航班</div>
+              <div class="con" href="#" id="flightsearching">搜索航班</div>
               <div class="ricon"></div>
             </div>
             <div class="item">
@@ -54,7 +54,7 @@
               <div class="licon">
                 <span>☊</span>
               </div>
-              <div class="con">我的订单</div>
+              <div class="con" href="#" id="userorder">我的订单</div>
               <div class="ricon"></div>
             </div>
             <div class="item">
@@ -62,7 +62,7 @@
               <div class="licon">
                 <span>❤</span>
               </div>
-              <div class="con">处理订单</div>
+              <div class="con" href="#" id="userhistoryorder">历史订单</div>
               <div class="ricon"></div>
             </div>
             <div class="item">
@@ -70,7 +70,7 @@
               <div class="licon">
                 <span>✘</span>
               </div>
-              <div class="con">取消订单</div>
+              <div class="con" href="#" id="changeinfo">修改信息</div>
               <div class="ricon"></div>
             </div>
             <div class="item">
@@ -113,6 +113,7 @@
       </div>
     </div>
 
+    <!-- 初始面板 -->
     <div id="window" class="popup-content">
       <span class="close-btn">&times;</span>
       <form id="personal-info" class="active">
@@ -123,108 +124,234 @@
         <div class="userinfo">
           <p>真实姓名: <span id="realName"></span></p>
           <p>性别: <span id="sex"></span></p>
-          <p>年龄: <span id="age"></span></p>
+          <p>生日: <span id="age"></span></p>
           <p>手机: <span id="phone"></span></p>
           <p>邮箱: <span id="email"></span></p>
-          <p>当前预定机票数: <span id="ticketCount">0</span></p>
         </div>
         <div class="line"></div>
         <div class="userinfotitle">
           <h3>您即将出发的行程：</h3>
         </div>
-        <div class="flight-info-box">
-          <div class="flight-info-header">
-            <span>航空公司/航班号</span>
-            <span>起飞时间</span>
-            <span></span>
-            <span>到达时间</span>
-            <span>出发时间</span>
-            <span>座位号</span>
-          </div>
-          <div class="flight-info">
-            <span>HO5375</span>
-            <span>07:00</span>
+        <div id="latest-results">
+          <!-- Results will be appended here -->
+        </div>
+      </form>
+
+      <!-- 搜索航班 -->
+      <form id="flight-search" class="hidden">
+        <div class="flighttitle">
+          <h3>搜索你想要搜索的航班</h3>
+        </div>
+        <div class="line"></div>
+        <div class="searchflightbox">
+          <div class="searchflightinputbox">
+            <span class="inputBox">
+              <input type="text" id="leave" placeholder="出发地" />
+            </span>
             <span class="arrow"><p>→</p></span>
-            <span>09:20</span>
-            <span>2024/6/2</span>
-            <span>J138</span>
+            <span class="inputBox">
+              <input type="text" id="arrive" placeholder="到达地" />
+            </span>
+            <span></span>
+            <span class="inputBox">
+              <input type="text" id="datetime" placeholder="时间（可选）" />
+            </span>
           </div>
-          <div class="flight-detail">
-            <span>机型: JET</span>
-            <span>首都国际机场T2</span>
-            <span></span>
-            <span>浦东国际机场T1</span>
-            <span></span>
-            <span></span>
+          <div class="inputBox">
+            <input type="button" value="查询" onclick="searchFlights()" />
+          </div>
+        </div>
+        <div class="line"></div>
+
+        <div id="search-results" class="hidden">
+          <!-- Results will be appended here -->
+        </div>
+        <div id="pagination" class="hidden page-button">
+          <!-- Pagination buttons will be here -->
+        </div>
+      </form>
+
+      <!-- 用户订单 -->
+      <form id="user-order" class="hidden">
+        <div class="ordertitle">
+          <h3>你的订单如下所示:</h3>
+        </div>
+        <div class="line"></div>
+        <div id="order-results">
+          <!-- Results will be appended here -->
+        </div>
+
+        <div id="order-pagination" class="hidden page-button">
+          <!-- Pagination buttons will be here -->
+        </div>
+      </form>
+
+      <!-- 历史订单 -->
+      <form id="user-history-order" class="hidden">
+        <div class="historytitle">
+          <h3>历史订单:</h3>
+        </div>
+        <div class="line"></div>
+        <div id="history-order-results">
+          <!-- Results will be appended here -->
+        </div>
+        <div id="history-order-pagination" class="hidden page-button">
+          <!-- Pagination buttons will be here -->
+        </div>
+      </form>
+
+      <!-- 修改信息 -->
+      <form id="change-info" class="hidden">
+        <div class="historytitle">
+          <h3>个人信息按照现实填写：</h3>
+        </div>
+        <div class="line"></div>
+        <div class="user-change-info-box">
+          <p>
+            姓名:
+            <span class="infoBox"
+              ><input type="text" id="iRealName" placeholder="八嘎呀路"
+            /></span>
+          </p>
+          <p>
+            性别:
+            <span class="infoBox"
+              ><input type="text" id="iSex" placeholder="八嘎呀路"
+            /></span>
+          </p>
+          <p>
+            生日:
+            <span class="infoBox"
+              ><input type="text" id="iBirth" placeholder="八嘎呀路"
+            /></span>
+          </p>
+          <p>
+            手机:
+            <span class="infoBox"
+              ><input type="text" id="iPhone" placeholder="八嘎呀路"
+            /></span>
+          </p>
+          <p>
+            邮箱:
+            <span class="infoBox"
+              ><input type="text" id="iEmail" placeholder="八嘎呀路"
+            /></span>
+          </p>
+          <div class="inputBox">
+            <input
+              type="button"
+              id="confirm-change-info"
+              value="确认修改信息"
+            />
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="user-change-password-box">
+          <p>
+            输入新密码：<span class="infoBox"
+              ><input type="password" id="iPassword" placeholder="输入新密码"
+            /></span>
+          </p>
+          <p>
+            确认新密码：<span class="infoBox"
+              ><input
+                type="password"
+                id="iConfirmPassword"
+                placeholder="确认新密码"
+            /></span>
+          </p>
+
+          <div class="inputBox">
+            <input
+              id="confirm-change-password"
+              type="button"
+              value="确认修改密码"
+            />
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="user-charge-box">
+          <p>您的余额：<span id="balance"></span></p>
+          <span>输入充值：</span
+          ><span class="infoBox"
+            ><input type="text" id="iCharge" placeholder="输入充值金额"
+          /></span>
+          <div class="inputBox">
+            <input id="confirm-charge-balance" type="button" value="确认充值" />
           </div>
         </div>
       </form>
 
+      <!-- 小组任务 -->
       <form id="team-work" class="hidden">
         <div class="teamworktitle">
-          <h3>以下是各位小组成员的任务：</h3>
+          <h3>以下是急需完成的任务：</h3>
         </div>
         <div class="line"></div>
         <div class="teamworksubtitle">
-          <h3>任务一：</h3>
-        </div>
-        <div class="teamtaskcontent">
-          <p>1.建立所有表之间的外键</p>
-          <p>2.把多对多关系的表全部制作完毕</p>
-        </div>
-        <div class="line"></div>
-        <div class="teamworksubtitle">
-          <h3>任务二：</h3>
+          <h3>存储过程&触发器：</h3>
         </div>
         <div class="teamtaskcontent">
           <p>
-            1.写一个存储结构，getUserTotalTickets()，参数是用户名，返回的值是用户一共拥有的订单数
+            1.写一个存储结构，GetFlightLowestPrice，参数是航班号（如AC108），返回的值是在flights_tickets表中该航班最便宜的票价
+          </p>
+          <p>2.根据用户名修改用户个人信息</p>
+          <p>3.修改用户密码</p>
+          <p>4.用存储过程实现简单加法，增加用户账户余额</p>
+          <p>
+            5.网站完善用户所有信息的功能：用户输入所有的user_data的内容，修改user_data表
+          </p>
+          <p>6.用户取消订单：根据用户名，删除order表里面用户的信息</p>
+          <p>
+            7.航班延迟功能：根据航班号和延迟时间，修改flight_schedule里的航班信息，actual_arrival里面的时间
           </p>
           <p>
-            2.写一个存储结构，getLatestFlight()，参数是用户名，返回一个表显示用户最近的一次航班，参考主页最近的航班
+            8.更新航班功能：刷新航班的actual_arrvial和actual_departure信息，然后更新状态为航线完成，并且更新订单信息
+          </p>
+          <p>9.增删用户：做一个触发器，删除用户会一并删除其他表里用户的信息</p>
+          <p>
+            10.增删航班：做一个触发器，删除航班或者flight会删除所有相关联的信息
+          </p>
+          <p>
+            11.航班延迟触发器：当flight_schedules表里的actual_arrival更新后，自动计算delay_time，并且更新schedule_status为
+            已出发
+          </p>
+          <p>
+            12.航班到达触发器：当flight_schedules表里的actual_departure更新后，自动更新schedule_status为
+            已到达
           </p>
         </div>
         <div class="line"></div>
         <div class="teamworksubtitle">
-          <h3>任务三：</h3>
+          <h3>可参考网站：</h3>
         </div>
         <div class="teamtaskcontent">
           <p>
             1.查看 https://flights.ctrip.com/schedule/bjs.sha.html
-            网站，向表里写一些信息
+            网站，向表里写一些信息（可以多写点，要按照表的实际内容写，减少重复信息）
           </p>
         </div>
-        <div class="line"></div>
-        <div class="teamworksubtitle">
-          <h3>任务四：</h3>
+      </form>
+
+      <!-- 航票信息 -->
+      <form id="ticket-info" class="hidden">
+        <div class="historytitle">
+          <h3>航票信息如下：</h3>
         </div>
-        <div class="teamtaskcontent">
-          <p>1.继续制作网站其他部分</p>
+        <div class="line"></div>
+        <div id="ticket-results">
+          <!-- Results will be appended here -->
         </div>
       </form>
 
       <div class="footer">小组成员：灵 五 水 草</div>
     </div>
 
-    <script>
-      //菜单之间切换的js脚本
-      document.addEventListener("DOMContentLoaded", () => {});
-
-      //新建事件监听器js脚本
-      document.addEventListener("DOMContentLoaded", () => {
-        const nav = document.querySelector(".nav");
-        const popup = document.querySelector(".popup-content");
-
-        nav.addEventListener("mouseover", () => {
-          popup.classList.add("hovered");
-        });
-
-        nav.addEventListener("mouseout", () => {
-          popup.classList.remove("hovered");
-        });
-      });
-    </script>
-    <script src="js/user.js"></script>
-    <script src="js/menu.js"></script>
+    <script src="js/userJS/user.js"></script>
+    <script src="js/userJS/menu.js"></script>
+    <script src="js/userJS/order.js"></script>
+    <script src="js/userJS/search.js"></script>
+    <script src="js/userJS/history.js"></script>
+    <script src="js/userJS/changeInfo.js"></script>
   </body>
 </html>

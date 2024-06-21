@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>航空管理系统</title>
+    <link rel="stylesheet" type="text/css" href="css/adminWeb.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="warp">
+        <div class="nav">
+          <span></span>
+          <span></span>
+          <span></span>
+          <div class="" btn>
+            <div class="btn-item"></div>
+            <div class="btn-item"></div>
+            <div class="btn-item"></div>
+          </div>
+          <div class="icon">
+            <div class="icon-img">
+              <img />
+            </div>
+            <div class="icon-con">
+              <p>终端</p>
+              <h2>( ━ ^ ━ )</h2>
+            </div>
+          </div>
+          <div class="line"></div>
+          <div class="title">
+            <p>菜单栏</p>
+          </div>
+          <div class="menu">
+            <div class="item">
+              <div class="light"></div>
+              <div class="licon">
+                <span>🛈</span>
+              </div>
+              <div class="con" href="#" id="personalinfo">信息总览</div>
+              <div class="ricon"></div>
+            </div>
+            <div class="item">
+              <div class="light"></div>
+              <div class="licon">
+                <span>🛪</span>
+              </div>
+              <div class="con" href="#" id="manageairline">管理航班</div>
+              <div class="ricon"></div>
+            </div>
+            <div class="item">
+              <div class="light"></div>
+              <div class="licon">
+                <span>☊</span>
+              </div>
+              <div class="con" href="#" id="addflight">添加航线</div>
+              <div class="ricon"></div>
+            </div>
+            <div class="item">
+              <div class="light"></div>
+              <div class="licon">
+                <span>❤</span>
+              </div>
+              <div class="con" href="#" id="manageflight">管理班次</div>
+              <div class="ricon"></div>
+            </div>
+            <div class="item">
+              <div class="light"></div>
+              <div class="licon">
+                <span>✘</span>
+              </div>
+              <div class="con" href="#" id="airportsinfo">机场信息</div>
+              <div class="ricon"></div>
+            </div>
+            <div class="item">
+              <div class="light"></div>
+              <div class="licon">
+                <span>✿</span>
+              </div>
+              <div class="con" href="#" id="teamtask">小组任务</div>
+              <div class="ricon"></div>
+            </div>
+          </div>
+          <div class="line"></div>
+          <div class="title">
+            <p>服务</p>
+          </div>
+          <div class="serve">
+            <div class="item">
+              <div class="licon">
+                <span>✉︎</span>
+              </div>
+              <div class="con">客服通信</div>
+              <div class="ricon"></div>
+            </div>
+            <div class="item">
+              <div class="licon">
+                <span>☎</span>
+              </div>
+              <div class="con">问题反馈</div>
+              <div class="ricon"></div>
+            </div>
+            <div class="item">
+              <div class="licon">
+                <span>★</span>
+              </div>
+              <div class="con">个性设置</div>
+              <div class="ricon"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 初始面板 -->
+    <div id="window" class="popup-content">
+      <span class="close-btn">&times;</span>
+      <form id="personal-info" class="active">
+        <div class="userinfotitle">
+          <h3>终端管理系统 <span id="username"></span></h3>
+        </div>
+        <div class="line"></div>
+        <div class="userinfo">
+          <p>目前航班数: <span id="totalFlights"></span></p>
+          <p>目前订单数: <span id="totalOrders"></span></p>
+          <p>航班延迟数: <span id="totalDelays"></span></p>
+        </div>
+        <div class="line"></div>
+        <div class="userinfotitle">
+          <h3>即将要出发的航班：</h3>
+        </div>
+        <div class="flight-info-box">
+          <div class="flight-info-header">
+            <span>航空公司/航班号</span>
+            <span>起飞时间</span>
+            <span></span>
+            <span>到达时间</span>
+            <span>出发时间</span>
+            <span>座位号</span>
+          </div>
+          <div class="flight-info">
+            <span>HO5375</span>
+            <span>07:00</span>
+            <span class="arrow"><p>→</p></span>
+            <span>09:20</span>
+            <span>2024/6/2</span>
+            <span>J138</span>
+          </div>
+          <div class="flight-detail">
+            <span>机型: JET</span>
+            <span>首都国际机场T2</span>
+            <span></span>
+            <span>浦东国际机场T1</span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </form>
+
+      <!-- 添加航班 -->
+      <form id="flight-add" class="hidden">
+        <div class="historytitle">
+          <h3>添加新的航班、班次、机票</h3>
+        </div>
+        <div class="line"></div>
+        <div class="flight-add-box">
+          <p>
+            航空公司:
+            <span class="infoBox"
+              ><input type="text" id="iAirline" placeholder="输入公司名"
+            /></span>
+          </p>
+          <p>
+            航班号码:
+            <span class="infoBox"
+              ><input type="text" id="iFlightNumber" placeholder="输入航号"
+            /></span>
+          </p>
+          <p>
+            航班机型:
+            <span class="infoBox"
+              ><input type="text" id="iAircraft" placeholder="输入机型"
+            /></span>
+          </p>
+          <p>
+            出发机场:
+            <span class="infoBox"
+              ><input
+                type="text"
+                id="iDepartureAirport"
+                placeholder="输入机场名"
+            /></span>
+          </p>
+          <p>
+            到达机场:
+            <span class="infoBox"
+              ><input type="text" id="iArrivalAirport" placeholder="输入机场名"
+            /></span>
+          </p>
+          <div class="confirmBox">
+            <input type="button" id="confirm-flight-add" value="确认添加航班" />
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="schedule-add-box">
+          <p>
+            欲添加航班号：<span class="infoBox"
+              ><input type="text" id="isFlightNumber" placeholder="输入航班号"
+            /></span>
+          </p>
+          <p>
+            计划出发时间：<span class="infoBox"
+              ><input
+                type="text"
+                id="isScheduledDeparture"
+                placeholder="输入时间yyyy-mm-dd hh:mm"
+            /></span>
+          </p>
+          <p>
+            计划到达时间：<span class="infoBox"
+              ><input
+                type="text"
+                id="isScheduledArrvial"
+                placeholder="输入时间yyyy-mm-dd hh:mm"
+            /></span>
+          </p>
+          <div class="confirmBox">
+            <input
+              type="button"
+              id="confirm-schedule-add"
+              value="确认添加班次"
+            />
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="ticket-add-box">
+          <p>
+            班次id：<span class="infoBox"
+              ><input type="text" id="itScheduledID" placeholder="输入班次id"
+            /></span>
+          </p>
+          <p>
+            票类别：<span class="infoBox"
+              ><input type="text" id="itTicketClass" placeholder="输入票类别"
+            /></span>
+          </p>
+          <p>
+            票售价：<span class="infoBox"
+              ><input type="text" id="itTicketPrice" placeholder="输入票售价"
+            /></span>
+          </p>
+          <p>
+            票座位：<span class="infoBox"
+              ><input type="text" id="itTotalSeats" placeholder="输入总座数"
+            /></span>
+          </p>
+          <div class="confirmBox">
+            <input type="button" id="confirm-ticket-add" value="确认添加机票" />
+          </div>
+        </div>
+      </form>
+
+      <!-- 管理航班 -->
+      <form id="manage-flight" class="hidden">
+        <div class="ordertitle">
+          <h3>班次信息如下所示：</h3>
+        </div>
+        <div class="line"></div>
+        <div class="searchflightbox">
+          <div class="searchflightinputbox">
+            <span class="inputBox">
+              <input type="text" id="leave" placeholder="出发地" />
+            </span>
+            <span class="arrow"><p>→</p></span>
+            <span class="inputBox">
+              <input type="text" id="arrive" placeholder="到达地" />
+            </span>
+            <span></span>
+            <span class="inputBox">
+              <input type="text" id="datetime" placeholder="时间（可选）" />
+            </span>
+          </div>
+          <div class="inputBox">
+            <input type="button" value="查询" onclick="searchFlights()" />
+          </div>
+        </div>
+        <div class="line"></div>
+
+        <div id="search-results" class="hidden">
+          <!-- Results will be appended here -->
+        </div>
+        <div id="pagination" class="hidden page-button">
+          <!-- Pagination buttons will be here -->
+        </div>
+      </form>
+
+      <!-- 航班管理 -->
+      <form id="manage-airline" class="hidden">
+        <div class="historytitle">
+          <h3>全部航班</h3>
+        </div>
+        <div class="line"></div>
+        <div id="airline-results">
+          <!-- Results will be appended here -->
+        </div>
+        <div id="airline-pagination" class="hidden page-button">
+          <!-- Pagination buttons will be here -->
+        </div>
+      </form>
+
+      <!-- 机场信息 -->
+      <form id="airports-info" class="hidden">
+        <div class="historytitle">
+          <h3>机场信息</h3>
+        </div>
+        <div class="line"></div>
+        <div id="airports-results">
+          <!-- Results will be appended here -->
+        </div>
+        <div id="airports-pagination" class="hidden page-button">
+          <!-- Pagination buttons will be here -->
+        </div>
+      </form>
+
+      <!-- 航票信息 -->
+      <form id="ticket-info" class="hidden">
+        <div class="historytitle">
+          <h3>航票信息如下：</h3>
+        </div>
+        <div class="line"></div>
+        <div id="ticket-results">
+          <!-- Results will be appended here -->
+        </div>
+      </form>
+
+      <div class="footer">小组成员：灵 五 水 草</div>
+    </div>
+
+    <script>
+      //菜单之间切换的js脚本
+      document.addEventListener("DOMContentLoaded", () => {});
+
+      //新建事件监听器js脚本
+      document.addEventListener("DOMContentLoaded", () => {
+        const nav = document.querySelector(".nav");
+        const popup = document.querySelector(".popup-content");
+
+        nav.addEventListener("mouseover", () => {
+          popup.classList.add("hovered");
+        });
+
+        nav.addEventListener("mouseout", () => {
+          popup.classList.remove("hovered");
+        });
+      });
+    </script>
+
+    <script src="js/adminJS/adminMenu.js"></script>
+    <script src="js/adminJS/info.js"></script>
+    <script src="js/adminJS/addFlight.js"></script>
+    <script src="js/adminJS/searchFlight.js"></script>
+    <script src="js/adminJS/searchAirlines.js"></script>
+    <script src="js/adminJS/searchAirports.js"></script>
+  </body>
+</html>
